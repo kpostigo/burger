@@ -2,13 +2,13 @@
 $('body').on('click', '.submit', function () {
   event.preventDefault();
   
-  let newBurger = {
-    burger_name: $('#burger').text().trim()
-  };
+  let newBurger = $('.burger_name').val().trim();
 
-  $.ajax('api/burger', {
+  $.ajax('api/burgers', {
     type: 'POST',
-    data: newBurger
+    data: {
+      burger_name: newBurger
+    }
   }).then(() => location.reload());
 });
 
@@ -19,7 +19,7 @@ $('body').on('click', '.devour', function () {
   // get burger id
   let id = $(this).data('id');
 
-  $.ajax(`api/burger/${id}`, {
+  $.ajax(`api/burgers/${id}`, {
     type: 'PUT',
     data: {
       id: id
