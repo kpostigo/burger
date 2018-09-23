@@ -3,8 +3,8 @@ var connection;
 
 
 // set up for heroku
-if (process.env.BURGERSDB_URL) {
-  connection = mysql.createConnection(process.env.BURGERSDB_URL);
+if (process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
   // if no env variable found, resort to local host
   connection = mysql.createConnection({
